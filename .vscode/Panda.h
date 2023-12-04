@@ -5,6 +5,7 @@ using namespace std;
 
 
 class Panda: public Pet{
+    public:
     Panda(string n, string t){
          name = n;
          type = t;

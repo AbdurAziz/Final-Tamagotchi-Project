@@ -18,6 +18,7 @@ protected:
     int runspeed;
     int fireorbreathpower;
     bool isAngry;
+    int clean;
 
    
 public:
@@ -78,6 +79,16 @@ public:
     virtual bool getMood(){
         return isAngry;
     }
+
+    virtual int getClean(){
+        return clean;
+    }
+
+    virtual void setClean(int c)
+    {
+        clean = c;
+    }
+    
     
    virtual void setFireorBreathPower(int f){
         fireorbreathpower = f;
@@ -91,15 +102,27 @@ public:
         hunger = 0;
         energy += 100;
     }
-    virtual void huntingTimeonAir(){
+
+    virtual void sleepTime(){ // you get hungry as you sleep
+        energy = energy + 5;
+        hunger = hunger - 15;
+    }
+
+    virtual void huntingTimeonAir(){   // pet wants to jump in the air for freedom. Hooray
         flyspeed = flyspeed + 100;
     }
-    virtual void huntingTimeonTree(){
+    virtual void huntingTimeonTree(){  // Pet wants to go on a tree to go hunting
         runspeed = runspeed + 15;
     }
     virtual void setMood(bool newfeeling){
         isAngry = newfeeling;
     }
+    virtual void jumpInAir(){    // Pet is gong to jump in the air 
+        energy = energy - 20;
+        flyspeed = flyspeed + 45;
+    }
+
+    
 
 };
 

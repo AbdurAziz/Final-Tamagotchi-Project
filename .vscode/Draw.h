@@ -10,6 +10,12 @@ public:
     void drawCheetah();
     void drawDragon();
     void drawPanda();
+    void jumpingPet();
+    void huntingOnAir();
+    void huntingOnTree();
+    void playingPet();
+    void eatingPet();
+    void petSleeping();
 
 };
 
