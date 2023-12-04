@@ -12,6 +12,7 @@ class Cheetah : public Pet{
         energy = 100;
         isAngry = false;
         runspeed = 0;
+        location = "Moon";
     }
 
     void setType(string t){

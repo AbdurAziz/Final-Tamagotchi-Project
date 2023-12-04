@@ -59,6 +59,10 @@ public:
     {
         return energy;
     }
+    virtual int getHunger()
+    {
+        return hunger;
+    }
 
     virtual int getFlySpeed(){
         return flyspeed;
