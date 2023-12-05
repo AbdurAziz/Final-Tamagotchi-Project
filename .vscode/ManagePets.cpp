@@ -13,8 +13,8 @@
 using namespace std;
 
 bool ManagePets:: MainMenu(){
- Draw art;
-  art.drawMenu();
+  Draw a;
+  a.showtheMenu();
   int option;
   cin >> option;
   if(option == 1){
@@ -37,7 +37,7 @@ bool ManagePets:: MainMenu(){
     exit(1);
   }
   else if(option == 4){
-    cout << "Wow";
+    a.infoAboutGame();
     return false;
   }
   else{
@@ -47,14 +47,14 @@ bool ManagePets:: MainMenu(){
     string key;
     cin >>  key;
     cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------";
-  
+
     return false;
   }
 }
 
 
 bool ManagePets::createAnimal(){
-  
+
   Draw art;
   Pet* pet;
   cout << endl << "-------------------------------------------------------------------------------------------------------------------------------------------------------------";
@@ -70,23 +70,21 @@ bool ManagePets::createAnimal(){
     cout << endl << endl << "-------------------------------------------------------------------------------------------------------------------------------------------------------------";
     cout  << "Cheetahs spend most of their time either hunting or sleeping. They also run very fast and have lots of stamina to catch there prey." << endl << endl;
     cout << "Cheetahs are also very socialable cats, despite living in the wild." << endl;
-    cout << "Dogs are naturally much happier pets and so they start the game with 100 happiness." << endl << endl;
-    cout << "Because of their energetic nature however, dogs start the game with a high hunger level as well, at 80." << endl << endl;
-    cout << "Now that the intro is out of the way, what would you like to name your bestfriend?" << endl << endl;
+    cout << "What name do you want to give it?" << endl << endl;
     art.drawCheetah();
     cin >> name;
     pet = new Cheetah(name, "Cheetah");
     if(!petExistsorNot(pet)){
       addAnimal(pet);
-      cout << endl << "Your " << pet->getType() << " " << pet->getName() << " has been added to Play Land!" << endl;
+      cout << endl << "Your " << pet->getType() << " " << pet->getName() << " has been created" << endl;
       cout << "Enter any key to continue!" << endl << endl;
       string key;
       cin >> key;
-      return false;
+      //return false;
       cout << endl << "-------------------------------------------------------------------------------------------------------------------------------------------------------------";
     }
     else{
-      cout << endl << "Your " << pet->getType() << " " << pet->getName() << " is already in Play Land!" << endl << endl;
+      cout << endl << "Your " << pet->getType() << " " << pet->getName() << " already exists!" << endl << endl;
       cout << "Enter any key to continue!" << endl << endl;
       string key;
       cin >> key;
@@ -98,16 +96,15 @@ bool ManagePets::createAnimal(){
   if(choice == 2) {
     string name;
     cout << endl << "-------------------------------------------------------------------------------------------------------------------------------------------------------------";
-    cout << endl << endl << "Great choice, cats are extremely smart animals and have their own unique starting attributes compared to the other pets!" << endl << endl;
-    cout << "Cats are naturally much more laid back, and so they start the game with 100 tiredness." << endl << endl;
-    cout << "Because of this lack of energy however, cats also start the game with a low hunger level, at 30." << endl << endl;
-    cout << "Now that the intro is out of the way, what would you like to name your feline friend?" << endl << endl;
+    cout << "Dragons are fantasy animals. They don't exist in real life, but if you ever see one, make it your friend, not foe." << endl << endl;
+    cout << "Dragons have a high breathing power enough to flame the size of half a football field. They also eat anything - plants, buildings, clothes, penciles, etc." << endl << endl;
+    cout << "What would you like to name your pet?" << endl << endl;
     art.drawDragon();
     cin >> name;
     pet = new Dragon(name, "Dragon");
     if(!petExistsorNot(pet)){
       addAnimal(pet);
-      cout << endl << "Your " << pet->getType() << " " << pet->getName() << " has been added to Play Land!" << endl;
+      cout << endl << "Your " << pet->getType() << " " << pet->getName() << " has been created" << endl;
       cout << "Enter any key to continue!" << endl << endl;
       string key;
       cin >> key;
@@ -115,7 +112,7 @@ bool ManagePets::createAnimal(){
       cout << endl << "-------------------------------------------------------------------------------------------------------------------------------------------------------------";
     }
     else{
-      cout << endl << "Your " << pet->getType() << " " << pet->getName() << " is already in Play Land!" << endl << endl;
+      cout << endl << "Your " << pet->getType() << " " << pet->getName() << " is already added!" << endl << endl;
       cout << "Enter any key to continue!" << endl << endl;
       string key;
       cin >> key;
@@ -126,17 +123,16 @@ bool ManagePets::createAnimal(){
   }
   if(choice == 3){
     cout << endl << "-------------------------------------------------------------------------------------------------------------------------------------------------------------";
-    cout << endl << endl << "Great choice, Bunnys are adorable little pets that have their own unique starting attributes compared to the other pets!" << endl << endl;
-    cout << "Bunnys love to eat, and so they start the game with 100 hunger." << endl << endl;
-    cout << "Because of their constant need for food however, bunnys also start the game with a low happiness level, at 30." << endl << endl;
-    cout << "Now that the intro is out of the way, what would you like to name this little speedster?" << endl << endl;
+    cout << "Panda's love to eat a lot" << endl << endl;
+    cout << "" << endl << endl;
+    cout << "What would you like to name your pet?" << endl << endl;
     art.drawPanda();
     string name;
     cin >> name;
     pet = new Panda(name, "Panda");
     if(!petExistsorNot(pet)){
       addAnimal(pet);
-      cout << endl << "Your " << pet->getType() << " " << pet->getName() << " has been added to Play Land!" << endl;
+      cout << endl << "Your " << pet->getType() << " " << pet->getName() << " has been created!" << endl;
       cout << "Enter any key to continue!" << endl << endl;
       string key;
       cin >> key;
@@ -144,7 +140,7 @@ bool ManagePets::createAnimal(){
       cout << endl << "-------------------------------------------------------------------------------------------------------------------------------------------------------------";
     }
     else{
-      cout << endl << "Your " << pet->getType() << " " << pet->getName() << " is already in Play Land!" << endl << endl;
+      cout << endl << "Your " << pet->getType() << " " << pet->getName() << " already exists!" << endl << endl;
       cout << "Enter any key to continue!" << endl << endl;
       string key;
       cin >> key;
@@ -162,7 +158,7 @@ bool ManagePets::createAnimal(){
     cout << endl << "-------------------------------------------------------------------------------------------------------------------------------------------------------------";
     exit(0);
   }
-  
+
   return false; 
 }
 
@@ -178,7 +174,7 @@ void ManagePets::addAnimal(Pet* pet){
   }
 
   fout << yourPet << endl;
-  
+
   fout.close();
 
 }
@@ -189,32 +185,35 @@ bool ManagePets::petExistsorNot(Pet* pet){
   string petName = pet->getName();
   string petType = pet->getType();
   ifstream fin;
-  
+
   fin.open("GAMEFILE.TXT");
 
   if(!fin.is_open()){
     cout << "File does not exist!" << endl;
   }
 
-   while (!fin.eof()) {
-     getline(fin, data); 
-     istringstream ins(data);
-     
-     string type;
-     ins >>  type;
-     string name;
-     ins >> name;
-  
-    if ((type == petType) && (name == petName)){
-      fin.close();
-      return true;
+  else{
+    while (!fin.eof()) {
+       getline(fin, data); 
+       istringstream ins(data);
+
+       string type;
+       ins >>  type;
+       string name;
+       ins >> name;
+
+      if ((type == petType) && (name == petName)){
+        fin.close();
+        return true;
+      }
+
     }
-    
   }
-  
+   
+
   fin.close();
   return false;
-  
+
 }
 
 
@@ -223,10 +222,31 @@ bool ManagePets::loadGame() {
   cout << endl << "-------------------------------------------------------------------------------------------------------------------------------------------------------------";
   cout << endl << endl << "Welcome Back!" << endl << endl;
   cout << "What Pet would you like to continue with?" << endl << endl;
+  string input;
+  //std::getline(std::cin, input);
+  cin >> input;
+
+  try {
+      // Attempt to convert the input to an integer
+
+      // Assuming entirePetlist() returns a Pet* based on the user's choice
+      pet = entirePetlist();
+
+      if (pet != nullptr) {
+          interact(pet);
+          return false;
+      } else {
+          return false;
+      }
+  } catch (const std::invalid_argument& e) {
+      // Handle the case where the input is not a valid integer
+      std::cerr << "Error: Invalid input. Please enter a valid number." << std::endl;
+      return false;
+  }
   pet = entirePetlist();
   if(pet != nullptr) {
     interact(pet);
-    return false;
+    return true;
   }
   else{
     return false;
@@ -236,7 +256,7 @@ bool ManagePets::loadGame() {
 
 bool ManagePets::interact(Pet* pet){
 Draw art;
- cout << endl << "Your adorable " << pet->getType() << " "  << pet->getName() 
+ cout << endl << "Your  " << pet->getType() << " "  << pet->getName() 
  << " is ready to play!" << endl << endl;
  cout << "Loading " << pet->getName() << "'s " << "stats...." << endl << endl;
  cout << "Hunger Level: " << pet->getHunger() << endl << endl;
@@ -245,7 +265,7 @@ Draw art;
   cout << "Enter any key to continue!" << endl << endl;
   string k;
   cin >> k;
- 
+
  bool game = true;
 
   while(game){
@@ -317,7 +337,7 @@ Draw art;
     if(o == 5){
       cout << endl << "-------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
       cout << endl << "Cleaning" << pet->getName() << " to make Pet more attractive and less dirty..." << endl << endl;
-      art.jumpingPet();
+      art.petGrooming();
       nextHour(pet);
       cout << endl << "The Pet is groomed!" << endl << endl;
       cout << "Here are " << pet->getName() << "'s updated stats..." << endl << endl;
@@ -355,16 +375,15 @@ Draw art;
       cout << "Hunger Level: " << pet->getHunger() << endl << endl;
       cout << "Location: " << pet->getLocation() << endl << endl;
       cout << "Energy level: " << pet->getEnergy() << endl << endl;
-      Draw art;
-      //art.drawEnd();
+      
       cout << endl << "Enter any key to return to main menu!" << endl << endl;
       string key;
       cin >>  key;
       return false;
     }
-    
+
   }
-  
+
 return true;
 }
 
@@ -379,10 +398,10 @@ void ManagePets::nextHour(Pet* pet){
 }
 
 Pet* ManagePets::entirePetlist(){
-  
+
   vector<Pet*> pets;
   vector <string> temp;
-  
+
   ifstream fin;
   fin.open("GAMEFILE.TXT");
   if(!fin.is_open()) {
@@ -411,7 +430,7 @@ Pet* ManagePets::entirePetlist(){
 
     pets.push_back(pet);
     temp.clear();
-    
+
   }
   vector<Pet*> whichPet;
   for(int i = 0; i < pets.size(); i++){
@@ -425,7 +444,7 @@ Pet* ManagePets::entirePetlist(){
   cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl << endl;
 
   if(pets.size() == 0){
-    cout << endl << "No pets availabe, please create a new pet!" << endl << endl;
+    cout << endl << "No pets availabe, create a new Pet!" << endl << endl;
     exit(1);
   }
   int o;
@@ -436,7 +455,7 @@ Pet* ManagePets::entirePetlist(){
   fin.close();
 
   return choice;
-  
+
 }
 
 
@@ -448,11 +467,11 @@ void ManagePets::saveAnimal(Pet* animal){
 
   ifstream fin;
   fin.open("GAMEFILE.TXT");
-  
+
   if(!fin.is_open()){
     cout << "File does not exist!" << endl;
   }
-
+else{
   string data;
   while(getline(fin, data)){
     istringstream ins(data);
@@ -462,25 +481,27 @@ void ManagePets::saveAnimal(Pet* animal){
       temp.push_back(variables);
     }
     ins.clear();
-    
+
     if(temp[1] != animal->getName()){
       Pet* pet = new Pet();
       pet->setType(temp[0]);
       pet->setName(temp[1]);
       pet->setHunger(stoi(temp[2]));
       pet->setEnergy(stoi(temp[3]));
-      pet->setClean(stoi(temp[5]));
+      pet->setClean(stoi(temp[4]));
       pets.push_back(pet);
       temp.clear();
     }
   }
+}
+  
 
 ofstream fout;
 fout.open("GAMEFILE.TXT");
 if(!fout.is_open()){
   cout << "File not found!" << endl;
 }
-  
+
 
 string yourPet = animal->getType() + " " + animal->getName() + " " + to_string(animal->getHunger()) + " " + to_string(animal->getEnergy()) + " " + to_string(animal->getClean());
 
@@ -490,6 +511,7 @@ fout << yourPet << endl;
     string yourPet = pets[i]->getType() + " " + pets[i]->getName() + " " + to_string(pets[i]->getHunger()) + " " + to_string(pets[i]->getEnergy()) + " " + to_string(pets[i]->getClean());
     fout << yourPet << endl;
   }
-  
+
 }
+
 

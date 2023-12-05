@@ -1,5 +1,5 @@
-#ifndef MANAGE_H
-#define MANAGE_H
+#ifndef MANAGEPETS_H
+#define MANAGEPETS_H
 #include "Pet.h"
 
 #include <iostream>

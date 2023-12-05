@@ -1,5 +1,4 @@
 #include "Pet.h"
-#pragma once
 using namespace std;
 #include <iostream>
 
@@ -12,7 +11,7 @@ class Dragon : public Pet{
             location = "Moon";
             hunger = 0;
             energy = 100;
-        
+
         }
 void setType(string t){
   type = t;
@@ -43,9 +42,6 @@ void playTime(){
     }
  void huntingTimeonAir(){
         flyspeed = flyspeed + 100;
-    }
-void setMood(bool newfeeling){
-        isAngry = newfeeling;
     }
 
 };

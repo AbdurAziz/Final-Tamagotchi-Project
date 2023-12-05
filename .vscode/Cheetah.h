@@ -1,5 +1,4 @@
 #include "Pet.h"
-#pragma once
 using namespace std;
 #include <iostream>
 
@@ -10,7 +9,6 @@ class Cheetah : public Pet{
         name = n;
         type = t;
         energy = 100;
-        isAngry = false;
         runspeed = 0;
         location = "Moon";
     }

@@ -20,7 +20,7 @@ protected:
     bool isAngry;
     int clean;
 
-   
+
 public:
     Pet(){
         name = "";
@@ -88,8 +88,8 @@ public:
     {
         clean = c;
     }
-    
-    
+
+
    virtual void setFireorBreathPower(int f){
         fireorbreathpower = f;
    }
@@ -122,10 +122,11 @@ public:
         flyspeed = flyspeed + 45;
     }
 
-    
+
 
 };
 
 
 
 #endif 
+

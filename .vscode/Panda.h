@@ -1,5 +1,4 @@
 #include "Pet.h"
-#pragma once
 using namespace std;
 #include <iostream>
 
